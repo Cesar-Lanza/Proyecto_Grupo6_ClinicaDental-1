@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Modelos
 {
@@ -15,9 +10,9 @@ namespace Modelos
         public string? Nombre { get; set; }
         [Required(ErrorMessage = "La direccion es obligatorio")]
         public string? Direccion { get; set; }
-       public string? Email { get; set; }
+        public string? Email { get; set; }
         [Required(ErrorMessage = "El Telefono es obligatorio")]
         public string? Telefono { get; set; }
-        
+
     }
 }
