@@ -1,9 +1,18 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<Blazor.Pages.Principal>
+</Blazor.Pages.Principal>
 
-<h1>Bienvenido</h1>
-
+<AuthorizeView>
+    <NotAuthorized>
+        <div class="class="col-xs-1" align="center">
+            <h2 style="font-weight:700">Debe identificarse para poder acceder al sistema</h2>
+            <span class="oi oi-arrow-thick-bottom" style="font-size:40px" ></span>
+            <br />
+            <a style="color:blue; font-weight:700; font-size:28px; " href="Ingreso" class="ml-md-auto">Login</a>
+        </div>
+    </NotAuthorized> 
+</AuthorizeView>
 
 
 

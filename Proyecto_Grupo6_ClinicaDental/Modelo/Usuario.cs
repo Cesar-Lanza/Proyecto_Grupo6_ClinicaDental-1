@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Modelos
 {
@@ -19,5 +14,22 @@ namespace Modelos
         [Required(ErrorMessage = "El Rol es obligatorio")]
         public string? Rol { get; set; }
         public bool EstaActivo { get; set; }
+
+        public Usuario()
+        {
+        }
+
+        public Usuario(string? codigoUsuario, string? nombre, string? clave, string? correo, string? rol, bool estaActivo)
+        {
+            CodigoUsuario = codigoUsuario;
+            Nombre = nombre;
+            Clave = clave;
+            Correo = correo;
+            Rol = rol;
+            EstaActivo = estaActivo;
+        }
     }
 }
+
+
+

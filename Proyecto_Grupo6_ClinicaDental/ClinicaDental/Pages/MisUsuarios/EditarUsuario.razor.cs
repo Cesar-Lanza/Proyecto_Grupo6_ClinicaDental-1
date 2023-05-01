@@ -1,9 +1,6 @@
-﻿using CurrieTechnologies.Razor.SweetAlert2;
-using Hotel.Interfaces;
-using Microsoft.AspNetCore.Components;
-using Modelos;
+﻿using Microsoft.AspNetCore.Components;
 
-namespace Hotel.Pages.MisUsuarios
+namespace ClinicaDental.Pages.MisUsuarios
 {
     public partial class EditarUsuario
     {
