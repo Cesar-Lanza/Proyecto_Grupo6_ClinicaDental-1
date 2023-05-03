@@ -77,40 +77,40 @@ namespace Datos.Repositorios
             return lista;
         }
 
-        public async Task<Usuario> GetPorCodigo(string codigousuario)
+       
+}
+    public async Task<Usario> GetPorCodigo(string codigousuario)
+    {
+        Usuario user = new Usuario();
+
+        try
         {
-            Usuario user = new Usuario();
+            using MySqlConnection conexion = Conexion();
+            await conexion.OpenAsync();
+            string sql = "SELECT * FROM usuario WHERE CodigoUsuario = @CodigoUsuario; ";
 
-            try
-            {
-                using MySqlConnection conexion = Conexion();
-                await conexion.OpenAsync();
-                string sql = "SELECT * FROM usuario WHERE CodigoUsuario = @CodigoUsuario; ";
-
-                user = await conexion.QueryFirstAsync<Usuario>(sql, new { codigousuario });
-            }
-            catch (Exception ex)
-            {
-            }
-            return user;
+            user = await conexion.QueryFirstAsync<Usuario>(sql);
         }
-
-        public async Task<bool> Nuevo(Usuario usuario)
+        catch (Exception ex)
         {
-            bool resultado = false;
-            try
-            {
-                using MySqlConnection conexion = Conexion();
-                await conexion.OpenAsync();
-                string sql = @"INSERT INTO usuario (CodigoUsuario,Nombre,Clave,Correo,Rol,EstaActivo) 
-                                VALUES (@CodigoUsuario,@Nombre,@Clave,@Correo,@Rol,@EstaActivo);";
-                resultado = Convert.ToBoolean(await conexion.ExecuteAsync(sql, usuario));
-            }
-            catch (Exception ex)
-            {
-
-            }
-            return resultado;
+        }
+        return user;
+    }
+     public async Task<bool> Nuevo(Usuario usuario)
+    {
+        bool resultado = false;
+        try
+        {
+            using MySqlConnection conexion = conexion();
+            await conexion.OpenAsync();
+            string sql = @"INSERT INTO usuario (CodigoUsuario,Nombre,Clave,Correo,Rol,EstaActivo)
+                         VALUES (@CodigoUsuario,@Nombre,@Clave,@Correo,@Rol,@EstaActivo);";
+            resultado = Convert.ToBoolean(await conexion.ExecuteAsync(sql, usuario));
+        }
+        catch (Exception ex)
+        {
+        } 
+        return resultado;
         }
     }
-}
+
