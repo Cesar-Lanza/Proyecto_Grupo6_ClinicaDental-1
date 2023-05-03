@@ -86,7 +86,7 @@ namespace Datos.Repositorios
                 using MySqlConnection conexion = Conexion();
                 await conexion.OpenAsync();
                 string sql = "SELECT * FROM usuario WHERE CodigoUsuario = @CodigoUsuario; ";
-                
+
                 user = await conexion.QueryFirstAsync<Usuario>(sql, new { codigousuario });
             }
             catch (Exception ex)
